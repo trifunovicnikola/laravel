@@ -1,0 +1,29 @@
+Schema::create('telefons', function (Blueprint $table) {
+             $table->id();
+            $table->bigInteger('kategorija')->unsigned();
+            $table->foreign('kategorija')->references('id')->on('marks');
+            $table->string('cijena');
+            $table->string('opis');
+            $table->string('slika1');
+            $table->string('slika2');
+            $table->string('slika3');
+            $table->date('datum_objave');
+            $table->date('datum_isteka');
+            $table->string('konfiguracije');
+            $table->string('prodavac');
+            $table->string('kontakt');
+        });
+
+
+           Schema::create('marks', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('model_id')->unsigned();
+            $table->foreign('model_id')->references('id')->on('models');
+            $table->string('marka_naziv');
+
+        });
+
+
+
+$table->id();
+            $table->string('model_naziv');
