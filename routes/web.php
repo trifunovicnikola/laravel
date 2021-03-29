@@ -48,7 +48,7 @@ Route::post('api/dodaj-model', 'dodajModelController@dodaj');
 Route::view('api/dodaj-telefon', 'dodajTelefon');
 Route::post('api/dodaj-telefon', 'dodajTelefonController@dodaj');
 
-Route::get('api/obrisi/{id}', 'telefonIdController@obrisi');
+Route::delete('api/obrisi/{id}', 'telefonIdController@obrisi');
 
 Route::view('api/edit/{id}', 'edit');
 Route::post('api/edit/{id}', 'EditController@edit');
