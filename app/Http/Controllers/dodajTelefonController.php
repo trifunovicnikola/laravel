@@ -14,14 +14,14 @@ class dodajTelefonController extends Controller
         $telefon->mark_id = $req->mark_id;
         $telefon->cijena = $req->cijena;
         $telefon->opis = $req->opis;
-        $telefon->slika1 = $req->slika1;
-        $telefon->slika2 = $req->slika2;
-        $telefon->slika3 = $req->slika3;
+        $telefon->slika_id = $req->slika_id;
 //        $telefon->datum_objave = $req->datum_objave;
 //        $telefon->datum_isteka = $req->datum_isteka;
+        $telefon->model = $req->model;
         $telefon->konfiguracije = $req->konfiguracije;
         $telefon->prodavac = $req->prodavac;
         $telefon->kontakt = $req->kontakt;
+        $telefon->sifra = $req->sifra;
         $telefon->javno = $req->javno;
         $telefon->save();
         return $telefon;

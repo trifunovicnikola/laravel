@@ -10,12 +10,14 @@
     <label for="exampleInputEmail1">opis</label>
     <input type="text" class="form-control" name = 'opis' aria-describedby="emailHelp" >
 
-    <label for="exampleInputEmail1">slika</label>
-    <input type="text" class="form-control" name = 'slika1' aria-describedby="emailHelp" >
-    <label for="exampleInputEmail1">slika</label>
-    <input type="text" class="form-control" name = 'slika2' aria-describedby="emailHelp" >
-    <label for="exampleInputEmail1">slika</label>
-    <input type="text" class="form-control" name = 'slika3' aria-describedby="emailHelp" >
+    <label for="exampleInputEmail1">slika_id</label>
+    <input type="text" class="form-control" name = 'slika_id' aria-describedby="emailHelp" >
+    <label for="exampleInputEmail1">sifra</label>
+    <input type="text" class="form-control" name = 'sifra' aria-describedby="emailHelp" >
+
+    <label for="exampleInputEmail1">model</label>
+    <input type="text" class="form-control" name = 'model' aria-describedby="emailHelp" >
+
 
     <label for="exampleInputEmail1">javno</label>
     <input type="text" class="form-control" name = 'javno' aria-describedby="emailHelp" >

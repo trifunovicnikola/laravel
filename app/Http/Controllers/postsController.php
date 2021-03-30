@@ -13,6 +13,7 @@ class postsController
     {
 //
         //return DB::select('select * from telefons ');
-        return telefon::with('mark_id')->get();
+        return telefon::with('mark_id', 'slika_id', 'konfiguracije')->get();
+
     }
 }

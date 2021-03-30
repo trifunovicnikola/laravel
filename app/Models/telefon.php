@@ -8,13 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class telefon extends Model
 {
     use HasFactory;
-
-
     protected $table = 'telefons';
 
     public function mark_id()
     {
         return $this->hasOne('\App\Models\mark', 'id', 'mark_id');
+    }
+    public function slika_id()
+    {
+        return $this->hasOne('\App\Models\photo', 'id', 'slika_id');
+    }
+    public function konfiguracije()
+    {
+        return $this->hasOne('\App\Models\configuration', 'id', 'konfiguracije');
     }
 
 
@@ -22,5 +28,4 @@ class telefon extends Model
     {
         return $this->hasOne('\App\Models\mark', 'id', 'model_id');
     }
-
 }

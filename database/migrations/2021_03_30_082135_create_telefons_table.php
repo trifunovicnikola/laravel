@@ -17,19 +17,19 @@ class CreateTelefonsTable extends Migration
             $table->id();
             $table->bigInteger('mark_id')->unsigned();
             $table->foreign('mark_id')->references('id')->on('marks');
+            $table->string('model');
             $table->string('cijena');
             $table->string('opis');
-            $table->string('slika1');
-            $table->string('slika2');
-            $table->string('slika3');
+            $table->bigInteger('slika_id')->unsigned();
+            $table->foreign('slika_id')->references('id')->on('photos');
             $table->date('created_at');
             $table->date('updated_at');
-            $table->string('konfiguracije');
+            $table->bigInteger('konfiguracije')->unsigned();
+            $table->foreign('konfiguracije')->references('id')->on('configurations');
             $table->string('prodavac');
             $table->string('kontakt');
+            $table->string('sifra');
             $table->boolean('javno')->nullable();
-
-
         });
     }
 
