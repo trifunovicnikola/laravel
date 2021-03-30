@@ -27,7 +27,7 @@ class OglasController extends Controller
         $podatak = post::find($id);
         $podatak->javno = 1;
         $podatak->save();
-        return post;
+        return ;
     }
 
 }

@@ -61,5 +61,8 @@ Route::post('api/dodaj-oglas', 'DodajOglasController@dodaj');
 Route::delete('api/obrisi-oglas/{id}', 'OglasController@obrisi');
 Route::post('api/edit-oglas/{id}', 'OglasController@edit');
 
+Route::view('api/dodaj-konfiguracije', 'konfiguracije');
+Route::post('api/dodaj-konfiguracije', 'DodajKonfiguracijeController@dodaj');
+
 
 
