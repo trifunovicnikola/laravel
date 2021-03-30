@@ -58,4 +58,8 @@ Route::get('api/oglas', 'OglasController@show');
 Route::view('api/dodaj-oglas', 'dadajOglas');
 Route::post('api/dodaj-oglas', 'DodajOglasController@dodaj');
 
+Route::delete('api/obrisi-oglas/{id}', 'OglasController@obrisi');
+Route::post('api/edit-oglas/{id}', 'OglasController@edit');
+
+
 

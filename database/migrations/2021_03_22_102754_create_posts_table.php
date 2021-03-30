@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('tekst');
             $table->date('created_at');
             $table->date('updated_at');
+            $table->boolean('javno')->nullable();
         });
     }
 
