@@ -22,14 +22,14 @@ class CreateTelefonsTable extends Migration
             $table->string('opis');
             $table->bigInteger('slika_id')->unsigned();
             $table->foreign('slika_id')->references('id')->on('photos');
-            $table->date('created_at');
-            $table->date('updated_at');
-            $table->bigInteger('konfiguracije')->unsigned();
-            $table->foreign('konfiguracije')->references('id')->on('configurations');
+            $table->bigInteger('specifikacije')->unsigned()->constrained();
+            $table->foreign('specifikacije')->references('id')->on('configurations');
             $table->string('prodavac');
             $table->string('kontakt');
             $table->string('sifra');
             $table->boolean('javno')->nullable();
+            $table->date('created_at');
+            $table->date('updated_at');
         });
     }
 

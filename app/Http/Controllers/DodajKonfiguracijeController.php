@@ -23,4 +23,9 @@ class DodajKonfiguracijeController extends Controller
         return $configuration;
 
     }
+
+    public function show()
+    {
+        return configuration::all();
+    }
 }

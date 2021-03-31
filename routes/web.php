@@ -64,5 +64,7 @@ Route::post('api/edit-oglas/{id}', 'OglasController@edit');
 Route::view('api/dodaj-konfiguracije', 'konfiguracije');
 Route::post('api/dodaj-konfiguracije', 'DodajKonfiguracijeController@dodaj');
 
+Route::get('api/konfiguracije', 'DodajKonfiguracijeController@show' );
+
 
 

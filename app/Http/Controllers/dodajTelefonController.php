@@ -12,17 +12,19 @@ class dodajTelefonController extends Controller
     {
         $telefon = new telefon();
         $telefon->mark_id = $req->mark_id;
+        $telefon->model = $req->model;
         $telefon->cijena = $req->cijena;
         $telefon->opis = $req->opis;
         $telefon->slika_id = $req->slika_id;
 //        $telefon->datum_objave = $req->datum_objave;
 //        $telefon->datum_isteka = $req->datum_isteka;
-        $telefon->model = $req->model;
-        $telefon->konfiguracije = $req->konfiguracije;
+
+        $telefon->specifikacije = $req->specifikacije;
         $telefon->prodavac = $req->prodavac;
         $telefon->kontakt = $req->kontakt;
-        $telefon->sifra = $req->sifra;
         $telefon->javno = $req->javno;
+        $telefon->sifra = $req->sifra;
+
         $telefon->save();
         return $telefon;
 

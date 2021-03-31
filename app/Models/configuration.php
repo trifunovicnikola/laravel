@@ -11,7 +11,7 @@ class configuration extends Model
     public $timestamps = false;
     protected $table = 'configurations';
 
-    public function konfiguracije()
+    public function specifikacije()
     {
         return $this->hasOne(configuration::class);
     }

@@ -18,9 +18,9 @@ class telefon extends Model
     {
         return $this->hasOne('\App\Models\photo', 'id', 'slika_id');
     }
-    public function konfiguracije()
+    public function specifikacije()
     {
-        return $this->hasOne('\App\Models\configuration', 'id', 'konfiguracije');
+        return $this->hasOne('\App\Models\configuration', 'id', 'specifikacije');
     }
 
 

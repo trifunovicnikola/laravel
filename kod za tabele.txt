@@ -1,0 +1,50 @@
+Schema::create('telefons', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('mark_id')->unsigned();
+            $table->foreign('mark_id')->references('id')->on('marks');
+            $table->string('cijena');
+            $table->string('opis');
+            $table->string('slika1');
+            $table->string('slika2');
+            $table->string('slika3');
+            $table->date('created_at');
+            $table->date('updated_at');
+            $table->string('konfiguracije');
+            $table->string('prodavac');
+            $table->string('kontakt');
+            $table->boolean('javno')->nullable();
+
+
+Schema::create('models', function (Blueprint $table) {
+
+            $table->id();
+            $table->bigInteger('marka_id')->unsigned();
+            $table->foreign('marka_id')->references('id')->on('marks');
+            $table->string('model_naziv');
+        });
+
+
+Schema::create('marks', function (Blueprint $table) {
+            $table->id();
+            $table->string('marka_naziv');
+        });
+
+
+
+
+protected $table = 'telefons';
+
+    public function mark_id()
+    {
+        return $this->hasOne('\App\Models\mark', 'id', 'mark_id');
+    }
+    public function slika_id()
+    {
+        return $this->hasMany('\App\Models\photo', 'id', 'slika_id');
+    }
+
+
+    public function models()
+    {
+        return $this->hasOne('\App\Models\mark', 'id', 'model_id');
+    }
