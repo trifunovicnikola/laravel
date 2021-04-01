@@ -16,6 +16,7 @@ class CreateMarksTable extends Migration
         Schema::create('marks', function (Blueprint $table) {
             $table->id();
             $table->string('marka_naziv');
+            $table->string('slika');
         });
     }
 
