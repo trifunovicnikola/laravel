@@ -11,7 +11,8 @@ class telefonIdController
     public function show($id)
     {
 
-        return DB::select('select * from telefons  where id ='.$id);
+//        return DB::select('select * from telefons  where id ='.$id);
+        return telefon::with('mark_id','slika_id', 'specifikacije')->find($id);
 
 
     }

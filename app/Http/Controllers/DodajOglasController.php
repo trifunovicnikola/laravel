@@ -15,6 +15,6 @@ class DodajOglasController extends Controller
         $post->tekst = $req->tekst;
 //        $post->datum_objave= $req->datum;
         $post->save();
-        return redirect('api/dodaj-oglas');
+        return post;
     }
 }
