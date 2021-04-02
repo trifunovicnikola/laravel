@@ -18,4 +18,9 @@ class markeController extends Controller
 
     }
 
+    public function filtriraj($id)
+    {
+        return mark::find($id);
+    }
+
 }

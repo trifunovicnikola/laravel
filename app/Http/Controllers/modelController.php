@@ -16,4 +16,8 @@ class modelController extends Controller
         return models::all();
 
     }
+    public function filtriraj($marka_id)
+    {
+        return DB::select('select * from models where marka_id ='.$marka_id);
+    }
 }

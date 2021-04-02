@@ -65,6 +65,9 @@ Route::view('api/dodaj-konfiguracije', 'konfiguracije');
 Route::post('api/dodaj-konfiguracije', 'DodajKonfiguracijeController@dodaj');
 
 Route::get('api/konfiguracije', 'DodajKonfiguracijeController@show' );
+Route::get('api/marka-filtriraj/{id}', 'markeController@filtriraj');
+Route::get('api/model-filtriraj/{marka_id}', 'modelController@filtriraj');
+
 
 
 
