@@ -25,7 +25,9 @@ class telefonIdController
 
     public function filtriraj($mark_id)
     {
-        return DB::select('select * from telefons where mark_id ='.$mark_id);
+//        return DB::select('select * from telefons where mark_id ='.$mark_id);
+        return telefon::with('mark_id','slika_id', 'specifikacije')->find($mark_id);
+
     }
 
 
