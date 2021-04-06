@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->group(function ()
 });
 
 
-Route::post('file','fileController@file');
+Route::post('/file','fileController@file');
