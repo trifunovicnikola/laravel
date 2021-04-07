@@ -43,6 +43,7 @@ if ($request->hasFile('slika2')) {
    $photo->slika1=$compPic;
     $photo->slika2=$compPic1;
         $photo->slika3=$compPic2;
+        $photo->save();
 
 }}}
 
