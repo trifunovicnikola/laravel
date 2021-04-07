@@ -17,4 +17,14 @@ class modelController extends Controller
 
     }
 
+    public function  modelmarka($marka_id){
+
+
+     return   DB::select('select * from models where marka_id ='.$marka_id);
+
+
+
+    }
+
+
 }

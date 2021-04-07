@@ -38,6 +38,7 @@ Route::get('api/telefoni/{id}', 'telefonIdController@show');
 Route::get('api/marke', 'markeController@show');
 
 Route::get('api/model', 'modelController@show');
+Route::get('api/model/{marka_id}', 'modelController@modelmarka');
 
 Route::view('api/dodaj-marku', 'dodajMarku');
 Route::post('api/dodaj-marku', 'dodajMarkuController@dodaj');
@@ -67,7 +68,7 @@ Route::post('api/dodaj-konfiguracije', 'DodajKonfiguracijeController@dodaj');
 Route::get('api/konfiguracije', 'DodajKonfiguracijeController@show' );
 Route::get('api/marka-filtriraj/{id}', 'markeController@filtriraj');
 Route::get('api/telefon-filtriraj/{mark_id}', 'telefonIdController@filtriraj');
-
-
+Route::get('api/telefon-filtriraj/novitelefon', 'telefonIdController@dajnovitelefon');
+Route::get('api/telefon-filtriraj/telefonmodel/{naziv_modela}', 'telefonIdController@model');
 
 
