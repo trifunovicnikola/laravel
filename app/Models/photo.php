@@ -10,9 +10,8 @@ class photo extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'photos';
-protected  $fillable=['slika1'];
-protected  $fillable1=['slika2'];
-protected  $fillable2=['slika3'];
+protected  $fillable=['slika1','slika2','slika3'];
+
 
     public function slika_id()
     {
