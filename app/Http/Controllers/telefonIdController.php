@@ -32,13 +32,14 @@ class telefonIdController
 
     public function dajnovitelefon()
     {
-//        return DB::select('select * from telefons where mark_id ='.$mark_id);
-        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('javno','0')->get();
+
+        $javno= 0 ;
+        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('javno',$javno)->get();
 
     }
     public function model($naziv_modela)
     {
-//        return DB::select('select * from telefons where mark_id ='.$mark_id);
+
         return telefon::with('mark_id','slika_id', 'specifikacije' )->where('model',$naziv_modela)->get();
 
     }

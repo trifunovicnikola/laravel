@@ -68,7 +68,7 @@ Route::post('api/dodaj-konfiguracije', 'DodajKonfiguracijeController@dodaj');
 Route::get('api/konfiguracije', 'DodajKonfiguracijeController@show' );
 Route::get('api/marka-filtriraj/{id}', 'markeController@filtriraj');
 Route::get('api/telefon-filtriraj/{mark_id}', 'telefonIdController@filtriraj');
-Route::get('api/telefon-filtriraj/novitelefon', 'telefonIdController@dajnovitelefon');
+Route::get('api/novitelefon', 'telefonIdController@dajnovitelefon');
 Route::get('api/telefon-filtriraj/telefonmodel/{naziv_modela}', 'telefonIdController@model');
 
 
