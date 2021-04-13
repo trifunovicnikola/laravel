@@ -12,8 +12,9 @@ class postsController
     public function show()
     {
 //
-        //return DB::select('select * from telefons ');
-        return telefon::with('mark_id', 'slika_id', 'specifikacije')->get();
+
+        $javno= 1 ;
+        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('javno',$javno)->get();
 
     }
 }
