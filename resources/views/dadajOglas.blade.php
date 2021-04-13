@@ -1,3 +1,4 @@
+<img src="storage/app/public/slike/PodgoricaOverview_277284820_1617871017.jpg">
 <form action="dodaj-oglas" method="post">
     @csrf
     <label for="exampleInputEmail1">Tekst</label>
