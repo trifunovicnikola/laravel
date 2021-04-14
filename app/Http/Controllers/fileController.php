@@ -49,7 +49,8 @@ if ($request->hasFile('slika2')) {
 
 
     if ($photo->save()){
-        return ['status'=>true,'message'=>'Sacuvan '];
+//        return ['status'=>true,'message'=>'Sacuvan '];
+        return $photo;
 
     }
 else{
