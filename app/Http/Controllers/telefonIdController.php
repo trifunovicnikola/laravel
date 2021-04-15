@@ -39,7 +39,7 @@ class telefonIdController
     }
     public function model($naziv_modela)
     {
-        $javno= 0 ;
+        $javno= 1 ;
         return telefon::with('mark_id','slika_id', 'specifikacije' )->where('model',$naziv_modela)->where('javno',$javno)->get();
 
     }
