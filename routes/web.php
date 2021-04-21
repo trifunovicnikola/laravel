@@ -26,7 +26,8 @@ Route::get('/test', function () {
     // return view('test');
 });
 
-Route::get('api/telefoni', 'postsController@show');
+Route::get('api/telefoni', 'telefonIdController@prikaziprvih20');
+Route::get('api/telefoni1', 'telefonIdController@prikazidrugih20');
 
 Route::get('/users',function()
 {

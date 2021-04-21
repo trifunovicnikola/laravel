@@ -29,6 +29,28 @@ class telefonIdController
         return telefon::with('mark_id','slika_id', 'specifikacije' )->where('mark_id',$mark_id )->where('javno',$javno)->get();
 
     }
+    public function prikaziprvih20()
+    {
+
+
+        $javno= 1 ;
+        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('javno',$javno)->where('id','<',20)->get();
+
+
+    }
+
+
+    public function prikazidrugih20()
+    {
+
+
+        $javno= 1 ;
+        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('javno',$javno)->where('id','>=',20)->where('id','<=',40)->get();
+
+
+    }
+
+
 
     public function dajnovitelefon()
     {
