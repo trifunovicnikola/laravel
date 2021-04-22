@@ -16,7 +16,7 @@ class telefon extends Model
     }
     public function slika_id()
     {
-        return $this->hasOne('\App\Models\photo', 'id', 'slika_id');
+        return $this->hasMany(photo::class);
     }
     public function specifikacije()
     {

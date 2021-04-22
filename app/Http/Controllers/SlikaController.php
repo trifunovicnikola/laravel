@@ -11,8 +11,8 @@ class SlikaController extends Controller
     {
         return photo::all();
     }
-    public function dajSliku($id)
+    public function dajSliku($telefon_id)
     {
-        return photo::find($id);
+        return photo::find($telefon_id);
     }
 }

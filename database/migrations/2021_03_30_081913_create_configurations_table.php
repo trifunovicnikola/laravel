@@ -15,13 +15,13 @@ class CreateConfigurationsTable extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->id();
-            $table->string('procesor');
-            $table->string('ram');
-            $table->string('baterija');
-            $table->string('kamera_zadnja');
-            $table->string('kamera_prednja');
-            $table->string('ekran');
-            $table->string('memorija');
+            $table->string('procesor')->nullable();
+            $table->string('ram')->nullable();
+            $table->string('baterija')->nullable();
+            $table->string('kamera_zadnja')->nullable();
+            $table->string('kamera_prednja')->nullable();
+            $table->string('ekran')->nullable();
+            $table->string('memorija')->nullable();
             $table->timestamps();
         });
     }

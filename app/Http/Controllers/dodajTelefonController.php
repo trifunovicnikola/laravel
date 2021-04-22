@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\configuration;
+use App\Models\photo;
 use App\Models\telefon;
 use Illuminate\Http\Request;
 use  App\Models\models;
@@ -11,6 +12,18 @@ class dodajTelefonController extends Controller
 {
     function dodaj(Request $req)
     {
+        $photo = new photo;
+        if ($req->hasFile('slika')) {
+            $completeFileName = $req->file('slika')->getClientOriginalName();
+            $filenameonly = pathinfo($completeFileName, PATHINFO_FILENAME);
+            $extension = $req->file('slika')->getClientOriginalExtension();
+            $compPic = str_replace(' ', '_', $filenameonly) . '_' . rand() . '_' . time() . '.' .
+                $extension;
+            $path = $req->file('slika')->storeAs('public/slike', $compPic);
+            $photo->slika = $compPic;
+            $photo->telefon_id = $req->telefon_id;
+            $photo->save();
+        }
         $configuration = new configuration();
         $configuration->procesor = $req->procesor;
         $configuration->ram = $req->ram;
@@ -26,7 +39,7 @@ class dodajTelefonController extends Controller
         $telefon->model = $req->model;
         $telefon->cijena = $req->cijena;
         $telefon->opis = $req->opis;
-        $telefon->slika_id = $configuration->id;
+//        $telefon->slika_id = $photo->id;
 //        $telefon->datum_objave = $req->datum_objave;
 //        $telefon->datum_isteka = $req->datum_isteka;
         $telefon->specifikacije = $req->specifikacije;

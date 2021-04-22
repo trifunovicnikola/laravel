@@ -15,9 +15,9 @@ class CreatePhotosTable extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->string('slika1');
-            $table->string('slika2');
-            $table->string('slika3');
+            $table->string('slika');
+            $table->bigInteger('telefon_id')->unsigned();
+            $table->foreign('telefon_id')->references('id')->on('telefons');
         });
     }
 

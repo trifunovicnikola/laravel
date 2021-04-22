@@ -12,7 +12,7 @@ class telefonIdController
     {
 
 //        return DB::select('select * from telefons  where id ='.$id);
-        return telefon::with('mark_id','slika_id', 'specifikacije')->find($id);
+        return telefon::with('mark_id', 'specifikacije')->find($id);
 
 
     }
@@ -26,7 +26,7 @@ class telefonIdController
     public function filtriraj($mark_id)
     {
         $javno= 1 ;
-        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('mark_id',$mark_id )->where('javno',$javno)->get();
+        return telefon::with('mark_id', 'specifikacije' )->where('mark_id',$mark_id )->where('javno',$javno)->get();
 
     }
     public function dajTelefone()
@@ -34,7 +34,7 @@ class telefonIdController
 
 
         $javno= 1 ;
-        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('javno',$javno)->get();
+        return telefon::with('mark_id','specifikacije' )->where('javno',$javno)->get();
 
 
     }
@@ -46,13 +46,13 @@ class telefonIdController
     {
 
         $javno= 0 ;
-        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('javno',$javno)->get();
+        return telefon::with('mark_id','specifikacije' )->where('javno',$javno)->get();
 
     }
     public function model($naziv_modela)
     {
         $javno= 1 ;
-        return telefon::with('mark_id','slika_id', 'specifikacije' )->where('model',$naziv_modela)->where('javno',$javno)->get();
+        return telefon::with('mark_id','specifikacije' )->where('model',$naziv_modela)->where('javno',$javno)->get();
 
     }
 

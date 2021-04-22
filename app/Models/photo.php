@@ -10,11 +10,15 @@ class photo extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'photos';
-protected  $fillable=['slika1','slika2','slika3'];
+    protected  $fillable=['slika'];
 
 
-    public function slika_id()
+//    public function slika_id()
+//    {
+//        return $this->hasOne(photo::class);
+//    }
+    public function telefon_id()
     {
-        return $this->hasOne(photo::class);
+        return $this->hasOne('\App\Models\telefon', 'id', 'telefon_id');
     }
 }
