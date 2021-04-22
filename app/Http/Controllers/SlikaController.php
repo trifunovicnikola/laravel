@@ -14,7 +14,7 @@ class SlikaController extends Controller
     }
     public function dajSliku($telefon_id)
     {
-//        return photo::find($telefon_id);
+
         return DB::select('SELECT * FROM PHOTOS WHERE telefon_id='.$telefon_id);
     }
 }
