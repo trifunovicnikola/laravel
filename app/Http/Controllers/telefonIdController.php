@@ -25,8 +25,9 @@ class telefonIdController
 
     public function obrisi($id)
     {
-        DB::select('delete from telefons where id ='.$id);
-        return redirect('/api/telefoni');
+        DB::select('delete from photos where telefon_id ='.$id );
+        DB::select('delete from telefons where id ='.$id );
+
     }
 
     public function filtriraj($mark_id)
