@@ -44,13 +44,15 @@ class telefonIdController
     public function dajTelefone()
     {
 
-        $javno= 1 ;
-        $telefon = telefon::with('mark_id','specifikacije' )->where('javno',$javno)->get();
+return DB::select( 'select tel.id as id, tel.model as model, marks.marka_naziv as naziv, tel.cijena as cijena , photos.slika as slika
+FROM telefons as tel
+join marks on (marks.id = tel.mark_id)
+join photos on (photos.telefon_id = tel.id)
+where tel.javno = 1
+group by photos.telefon_id
 
-        for($i=0; $i<sizeof($telefon);$i++){
-            $telefon[$i]->slika = photo::where('telefon_id', $telefon[$i]->id)->first();
-        }
-        return $telefon;
+
+');
     }
 
 
