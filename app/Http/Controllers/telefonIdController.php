@@ -44,7 +44,7 @@ class telefonIdController
     public function dajTelefone()
     {
 
-return DB::select( 'select tel.id as id, tel.model as model, marks.marka_naziv as naziv, tel.cijena as cijena , photos.slika as slika
+return DB::select( 'select tel.id as id, tel.model as model, marks.marka_naziv as naziv, tel.cijena as cijena , photos.slika as slika ,tel.prodavac as prodavac ,tel.kontakt as kontakt
 FROM telefons as tel
 join marks on (marks.id = tel.mark_id)
 join photos on (photos.telefon_id = tel.id)

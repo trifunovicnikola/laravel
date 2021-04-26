@@ -19,7 +19,8 @@ class OglasController extends Controller
     public function obrisi($id)
     {
         DB::select('delete from posts where id='.$id);
-        return post;
+
+        
     }
 
     public function edit($id)
