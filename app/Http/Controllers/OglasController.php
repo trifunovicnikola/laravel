@@ -15,12 +15,19 @@ class OglasController extends Controller
         //return DB::select('select * from telefons ');
         return DB::select('select * from posts');
     }
+    public function show1()
+    {
+//
+
+        return DB::select("select * from posts where posts.javno !='NULL'");
+    }
+
 
     public function obrisi($id)
     {
         DB::select('delete from posts where id='.$id);
 
-        
+
     }
 
     public function edit($id)
