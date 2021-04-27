@@ -35,18 +35,18 @@ class dodajTelefonController extends Controller
         $telefon->save();
 
 
-        $photo = new photo;
-        if ($req->hasFile('slika')) {
-            $completeFileName = $req->file('slika')->getClientOriginalName();
-            $filenameonly = pathinfo($completeFileName, PATHINFO_FILENAME);
-            $extension = $req->file('slika')->getClientOriginalExtension();
-            $compPic = str_replace(' ', '_', $filenameonly) . '_' . rand() . '_' . time() . '.' .
-                $extension;
-            $path = $req->file('slika')->storeAs('public/slike', $compPic);
-            $photo->slika = $compPic;
-            $photo->telefon_id = $telefon->id;
-            $photo->save();
-        }
+//        $photo = new photo;
+//        if ($req->hasFile('slika')) {
+//            $completeFileName = $req->file('slika')->getClientOriginalName();
+//            $filenameonly = pathinfo($completeFileName, PATHINFO_FILENAME);
+//            $extension = $req->file('slika')->getClientOriginalExtension();
+//            $compPic = str_replace(' ', '_', $filenameonly) . '_' . rand() . '_' . time() . '.' .
+//                $extension;
+//            $path = $req->file('slika')->storeAs('public/slike', $compPic);
+//            $photo->slika = $compPic;
+//            $photo->telefon_id = $telefon->id;
+//            $photo->save();
+//        }
 
         return $telefon;
 

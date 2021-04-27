@@ -27,7 +27,7 @@ Route::get('/test', function () {
 });
 
 Route::get('api/telefoni', 'telefonIdController@dajTelefone');
-
+Route::get('api/sviTelefoni', 'telefonIdController@uzmiSveTelefone');
 
 Route::get('/users',function()
 {
@@ -56,7 +56,7 @@ Route::view('api/edit/{id}', 'edit');
 Route::post('api/edit/{id}', 'EditController@edit');
 
 Route::get('api/oglas', 'OglasController@show');
-Route::get('api/oglasadmin', 'OglasController@show1');
+
 Route::view('api/dodaj-oglas', 'dadajOglas');
 Route::post('api/dodaj-oglas', 'DodajOglasController@dodaj');
 
