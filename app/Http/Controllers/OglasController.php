@@ -18,7 +18,6 @@ class OglasController extends Controller
     public function show1()
     {
 //
-
         return DB::select("select * from posts where posts.javno is NULL ");
     }
 

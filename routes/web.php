@@ -73,5 +73,6 @@ Route::get('api/novitelefon', 'telefonIdController@dajnovitelefon');
 Route::get('api/telefon-filtriraj/telefonmodel/{naziv_modela}', 'telefonIdController@model');
 Route::get('api/slike', 'SlikaController@show');
 Route::get('api/slika/{telefon_id}', 'SlikaController@dajSliku');
+Route::get('api/oglasadmin', 'OglasController@show1');
 
 
