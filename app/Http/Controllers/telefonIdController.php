@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\photo;
 use App\Models\telefon;
-use http\Env\Request;
+//use http\Env\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 
 use App\Models\Post;
@@ -83,7 +84,7 @@ group by photos.telefon_id');
         return $telefon;
     }
 
-    public function pretrazi($cijena1, $cijena2)
+    public function pretraziCijena(Request $request)
         {
 //        $telefon=$telefon->newQuery();
 //
@@ -101,6 +102,8 @@ group by photos.telefon_id');
 //        }
 //
 //        return $telefon;
+        $cijena1 = $request->cijena1;
+        $cijena2 = $request->cijena2;
 
         $javno= 1 ;
         $telefon= telefon::with('mark_id', 'specifikacije' )->whereBetween('cijena', [$cijena1, $cijena2])->where('javno',$javno)->get();
