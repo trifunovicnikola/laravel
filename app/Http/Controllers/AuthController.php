@@ -55,4 +55,6 @@ class AuthController extends Controller
             'message'=>'success'
         ])->withCookie($cookie);
     }
+
+
 }

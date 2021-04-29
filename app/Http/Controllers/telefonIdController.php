@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\photo;
 use App\Models\telefon;
+use http\Env\Request;
 use Illuminate\Support\Facades\DB;
+
 
 use App\Models\Post;
 
@@ -79,6 +81,35 @@ group by photos.telefon_id');
             $telefon[$i]->slika = photo::where('telefon_id', $telefon[$i]->id)->first();
         }
         return $telefon;
+    }
+
+    public function pretrazi($cijena1, $cijena2)
+        {
+//        $telefon=$telefon->newQuery();
+//
+//        if($req->has('mark_id'))
+//        {
+//            $telefon->where('mark_id', $req->input('mark_id'));
+//        }
+//        if($req->has('model'))
+//        {
+//            $telefon->where('model', $req->input('model'));
+//        }
+//        if($req->has('cijena'))
+//        {
+//            $telefon->where('cijena', $req->input('cijena'));
+//        }
+//
+//        return $telefon;
+
+        $javno= 1 ;
+        $telefon= telefon::with('mark_id', 'specifikacije' )->whereBetween('cijena', [$cijena1, $cijena2])->where('javno',$javno)->get();
+
+        for($i=0; $i<sizeof($telefon);$i++){
+            $telefon[$i]->slika = photo::where('telefon_id', $telefon[$i]->id)->first();
+        }
+        return $telefon;
+
     }
 
 
