@@ -65,9 +65,9 @@ group by photos.telefon_id');
 
     public function filtrirajSve(Request $request){
 
-        $marka_id=1;
-        $cijena_min=249;
-        $cijena_max=null;
+        $marka_id=null;
+        $cijena_min=2;
+        $cijena_max=600;
 
         $query = telefon::select('telefons.*')
             ->join('marks', 'marks.id', 'telefons.mark_id')
@@ -80,9 +80,13 @@ group by photos.telefon_id');
             $query = $query->where('telefons.cijena', '>=',$cijena_min);
 
         if ($cijena_max)
-            $query = $query->where('telefons.cijena', '<',$cijena_max)->groupby(photos.telefon_id);
-        ;
+            $query = $query->where('telefons.cijena', '<',$cijena_max)->groupBy('id');
+
         $query = $query->get();
+
+        for($i=0; $i<sizeof($query);$i++){
+            $query[$i]->slika = photo::where('telefon_id', $query[$i]->id)->first();
+        }
 
         return $query;
 
