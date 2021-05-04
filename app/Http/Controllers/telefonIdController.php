@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 
 use App\Models\Post;
+use Symfony\Component\Console\Input\Input;
 
 class telefonIdController
 {
@@ -62,8 +63,52 @@ group by photos.telefon_id');
 
 
 
+    public function filtrirajSve(Request $request){
+
+        $marka_id=1;
+        $cijena_min=249;
+        $cijena_max=null;
+
+        $query = telefon::select('telefons.*')
+            ->join('marks', 'marks.id', 'telefons.mark_id')
+            ->join('photos', 'photos.telefon_id', 'telefons.id');
+
+        if($marka_id)
+            $query = $query->where('telefons.mark_id', $marka_id);
+
+        if ($cijena_min)
+            $query = $query->where('telefons.cijena', '>=',$cijena_min);
+
+        if ($cijena_max)
+            $query = $query->where('telefons.cijena', '<',$cijena_max)->groupby(photos.telefon_id);
+        ;
+        $query = $query->get();
+
+        return $query;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function dajnovitelefon()
     {
+
+
 
         $javno= 0 ;
         $telefon = telefon::with('mark_id','specifikacije' )->where('javno',$javno)->get();
@@ -86,24 +131,13 @@ group by photos.telefon_id');
 
     public function pretraziCijena(Request $request)
         {
-//        $telefon=$telefon->newQuery();
-//
-//        if($req->has('mark_id'))
-//        {
-//            $telefon->where('mark_id', $req->input('mark_id'));
-//        }
-//        if($req->has('model'))
-//        {
-//            $telefon->where('model', $req->input('model'));
-//        }
-//        if($req->has('cijena'))
-//        {
-//            $telefon->where('cijena', $req->input('cijena'));
-//        }
-//
-//        return $telefon;
-        $cijena1 = $request->cijena1;
-        $cijena2 = $request->cijena2;
+
+
+
+
+
+        $cijena1 = $request->cijena1=20;
+        $cijena2 = $request->cijena2=300;
 
         $javno= 1 ;
         $telefon= telefon::with('mark_id', 'specifikacije' )->whereBetween('cijena', [$cijena1, $cijena2])->where('javno',$javno)->get();
