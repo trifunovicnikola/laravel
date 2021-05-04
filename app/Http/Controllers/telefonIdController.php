@@ -65,13 +65,15 @@ group by photos.telefon_id');
 
     public function filtrirajSve(Request $request){
 
-        $marka_id=null;
-        $cijena_min=2;
-        $cijena_max=600;
+        $marka_id=2;
+        $cijena_min=250;
+        $cijena_max=800;
+        $model_naziv='X';
 
         $query = telefon::select('telefons.*')
             ->join('marks', 'marks.id', 'telefons.mark_id')
             ->join('photos', 'photos.telefon_id', 'telefons.id');
+
 
         if($marka_id)
             $query = $query->where('telefons.mark_id', $marka_id);
@@ -80,7 +82,11 @@ group by photos.telefon_id');
             $query = $query->where('telefons.cijena', '>=',$cijena_min);
 
         if ($cijena_max)
-            $query = $query->where('telefons.cijena', '<',$cijena_max)->groupBy('id');
+            $query = $query->where('telefons.cijena', '<',$cijena_max);
+
+        if ($model_naziv)
+            $query = $query->where('telefons.model',$model_naziv)->groupBy('id');
+
 
         $query = $query->get();
 
