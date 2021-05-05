@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\mark;
 use App\Models\photo;
 use App\Models\telefon;
 //use http\Env\Request;
@@ -64,13 +65,13 @@ group by photos.telefon_id');
 
 
     public function filtrirajSve(Request $request){
+$javno=1;
+        $marka_id=$request->input('marka_id');
+        $cijena_min=$request->input('cijena_min');
+        $cijena_max=$request->input('cijena_max');
+        $model_naziv=$request->input('model_naziv');
 
-        $marka_id=2;
-        $cijena_min=250;
-        $cijena_max=800;
-        $model_naziv='X';
-
-        $query = telefon::select('telefons.*')
+        $query = telefon::select('telefons.*')->where('javno',$javno)
             ->join('marks', 'marks.id', 'telefons.mark_id')
             ->join('photos', 'photos.telefon_id', 'telefons.id');
 
@@ -84,20 +85,21 @@ group by photos.telefon_id');
         if ($cijena_max)
             $query = $query->where('telefons.cijena', '<',$cijena_max);
 
-        if ($model_naziv)
-            $query = $query->where('telefons.model',$model_naziv)->groupBy('id');
+        if ($model_naziv )
+            $query = $query->where('telefons.model', $model_naziv);
 
 
-        $query = $query->get();
 
+        $query = $query->groupBy('id')->get();
         for($i=0; $i<sizeof($query);$i++){
             $query[$i]->slika = photo::where('telefon_id', $query[$i]->id)->first();
+
         }
 
-        return $query;
+        $query = $query;
+        return $query ;
 
     }
-
 
 
 

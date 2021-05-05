@@ -74,6 +74,6 @@ Route::get('api/telefon-filtriraj/telefonmodel/{naziv_modela}', 'telefonIdContro
 Route::get('api/slike', 'SlikaController@show');
 Route::get('api/slika/{telefon_id}', 'SlikaController@dajSliku');
 Route::get('api/oglasadmin', 'OglasController@show1');
-Route::get('api/filtrirajSve','telefonIdController@filtrirajSve' );
+Route::post('api/filtrirajSve','telefonIdController@filtrirajSve' );
 
 
