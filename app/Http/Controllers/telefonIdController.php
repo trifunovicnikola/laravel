@@ -66,15 +66,19 @@ group by photos.telefon_id');
 
     public function filtrirajSve(Request $request){
 $javno=1;
-        $marka_id=$request->input('marka_id');
-        $cijena_min=$request->input('cijena_min');
-        $cijena_max=$request->input('cijena_max');
-        $model_naziv=$request->input('model_naziv');
 
+        $marka_id=$request->marka_id;
+        $cijena_min=$request->cijena_min;
+        $cijena_max=$request->cijena_max;
+        $model_naziv=$request->model_naziv;
+        $ram=$request->ram;
+        $prednja=$request->prednja;
+        $zadnja=$request->zadnja;
+        $memorija=$request->memorija;
         $query = telefon::select('telefons.*')->where('javno',$javno)
             ->join('marks', 'marks.id', 'telefons.mark_id')
-            ->join('photos', 'photos.telefon_id', 'telefons.id');
-
+            ->join('photos', 'photos.telefon_id', 'telefons.id')
+            ->join('configurations','configurations.id','telefons.specifikacije');
 
         if($marka_id)
             $query = $query->where('telefons.mark_id', $marka_id);
@@ -87,6 +91,18 @@ $javno=1;
 
         if ($model_naziv )
             $query = $query->where('telefons.model', $model_naziv);
+        if ($ram)
+            $query=$query->where('configurations.ram',$ram);
+        if ($prednja)
+            $query=$query->where('configurations.kamera_prednja',$prednja);
+        if ($zadnja)
+            $query=$query->where('configurations.kamera_zadnja',$zadnja);
+        if ($memorija)
+            $query=$query->where('configurations.memorija',$memorija);
+
+
+
+
 
 
 
