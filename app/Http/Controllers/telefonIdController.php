@@ -75,7 +75,7 @@ $javno=1;
         $prednja=$request->prednja;
         $zadnja=$request->zadnja;
         $memorija=$request->memorija;
-        $query = telefon::select('telefons.*')->where('javno',$javno)
+        $query = telefon::select('telefons.*')->where('javno',$javno)->with('mark_id')
             ->join('marks', 'marks.id', 'telefons.mark_id')
             ->join('photos', 'photos.telefon_id', 'telefons.id')
             ->join('configurations','configurations.id','telefons.specifikacije');
@@ -105,12 +105,12 @@ $javno=1;
 
 
 
-
         $query = $query->groupBy('id')->get();
         for($i=0; $i<sizeof($query);$i++){
             $query[$i]->slika = photo::where('telefon_id', $query[$i]->id)->first();
 
         }
+
 
         $query = $query;
         return $query ;
