@@ -76,5 +76,8 @@ Route::get('api/slika/{telefon_id}', 'SlikaController@dajSliku');
 Route::get('api/oglasadmin', 'OglasController@show1');
 Route::post('api/filtrirajSve','telefonIdController@filtrirajSve' );
 
+Route::post('api/mail-salji', 'questionController@send');
+Route::get('api/mail-svi', 'questionController@show');
+
 
 

@@ -27,6 +27,7 @@ class dodajTelefonController extends Controller
         $telefon->model = $req->model;
         $telefon->cijena = $req->cijena;
         $telefon->opis = $req->opis;
+        $telefon->stanje = $req->stanje;
         $telefon->specifikacije = $req->specifikacije;
         $telefon->prodavac = $req->prodavac;
         $telefon->kontakt = $req->kontakt;

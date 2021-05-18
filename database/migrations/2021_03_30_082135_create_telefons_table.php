@@ -20,6 +20,7 @@ class CreateTelefonsTable extends Migration
             $table->string('model');
             $table->string('cijena');
             $table->string('opis');
+            $table->integer('stanje')->nullable();
             $table->bigInteger('specifikacije')->unsigned()->constrained();
             $table->foreign('specifikacije')->references('id')->on('configurations');
             $table->string('prodavac');
