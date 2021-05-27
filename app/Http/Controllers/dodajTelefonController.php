@@ -33,6 +33,7 @@ class dodajTelefonController extends Controller
         $telefon->kontakt = $req->kontakt;
         $telefon->javno = $req->javno;
         $telefon->sifra = $req->sifra;
+
         $telefon->save();
 
 
