@@ -29,6 +29,7 @@ class CreateTelefonsTable extends Migration
             $table->boolean('javno')->nullable();
             $table->date('created_at');
             $table->date('updated_at');
+            $table->string('vrijeme');
         });
     }
 
