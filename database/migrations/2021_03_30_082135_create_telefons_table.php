@@ -18,7 +18,7 @@ class CreateTelefonsTable extends Migration
             $table->bigInteger('mark_id')->unsigned();
             $table->foreign('mark_id')->references('id')->on('marks');
             $table->string('model');
-            $table->string('cijena');
+            $table->integer('cijena');
             $table->string('opis');
             $table->integer('stanje')->nullable();
             $table->bigInteger('specifikacije')->unsigned()->constrained();
