@@ -53,12 +53,19 @@ class telefonIdController
     public function dajTelefone()
     {
 
-return DB::select('select tel.created_at as okacen,tel.vrijeme as vrijeme,  tel.stanje as stanje,tel.id as id, tel.model as model, marks.marka_naziv as naziv, tel.cijena as cijena , photos.slika as slika ,tel.prodavac as prodavac ,tel.kontakt as kontakt
+        //return  telefon::with('slika_id')->with('models')->where('telefons.javno', 1)->groupBy('telefons.id')->get();
+
+       $telefoni = DB::select('select tel.created_at as okacen,tel.vrijeme as vrijeme,  tel.stanje as stanje,tel.id as id, tel.model as model, marks.marka_naziv as naziv, tel.cijena as cijena , photos.*, photos.id as slicica ,tel.prodavac as prodavac ,tel.kontakt as kontakt
 FROM telefons as tel
 join marks on (marks.id = tel.mark_id)
 join photos on (photos.telefon_id = tel.id)
 where tel.javno = 1
 group by photos.telefon_id');
+
+       foreach ($telefoni as $tel) {
+           $tel->slika = photo::find($tel->slicica);
+       }
+ return  $telefoni;
     }
 
 

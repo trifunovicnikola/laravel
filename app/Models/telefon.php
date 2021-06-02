@@ -26,6 +26,6 @@ class telefon extends Model
 
     public function models()
     {
-        return $this->hasOne('\App\Models\mark', 'id', 'model_id');
+        return $this->hasOne('\App\Models\mark', 'id', 'mark_id');
     }
 }
