@@ -13,10 +13,7 @@ class models extends Model
 
 
 
-    public function model_id()
-    {
-        return $this->hasMany(models::class);
-    }
+
 
 
 

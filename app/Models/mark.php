@@ -12,21 +12,15 @@ class mark extends Model
 
     protected $table = 'marks';
 
-//    public function models()
-//    {
-//        return $this->hasMany(models::class);
-//    }
+
 
     public function model_id()
     {
-        return $this->hasOne('\App\Models\models', 'id', 'model_id');
+        return $this->hasMany('\App\Models\models', 'id', 'model_id');
     }
 
 
-    public function mark_id()
-    {
-        return $this->hasOne(mark::class);
-    }
+
 
 
 
