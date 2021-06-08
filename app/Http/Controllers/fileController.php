@@ -17,29 +17,6 @@ $compPic =str_replace(' ','_',$filenameonly).'_'.rand() .'_'.time(). '.'.
     $extension;
 $path=$request->file('slika')->storeAs('public/slike',$compPic);
 
-//if ($request->hasFile('slika2')) {
-//            $completeFileName1=$request->file('slika2')->getClientOriginalName();
-//            $filenameonly1 = pathinfo($completeFileName1,PATHINFO_FILENAME);
-//            $extension1 = $request->file('slika2')->getClientOriginalExtension();
-//            $compPic1 =str_replace(' ','_',$filenameonly1).'_'.rand() .'_'.time(). '.'.
-//                $extension1;
-//            $path=$request->file('slika2')->storeAs('public/slike',$compPic1);
-//
-//    if ($request->hasFile('slika3')) {
-//        $completeFileName2=$request->file('slika3')->getClientOriginalName();
-//        $filenameonly2 = pathinfo($completeFileName2,PATHINFO_FILENAME);
-//        $extension2 = $request->file('slika3')->getClientOriginalExtension();
-//        $compPic2 =str_replace(' ','_',$filenameonly2).'_'.rand() .'_'.time(). '.'.
-//            $extension2;
-//        $path=$request->file('slika3')->storeAs('public/slike',$compPic2);
-//
-//
-
-
-
-
-
-
    $photo->slika=$compPic;
    $photo->telefon_id = $request->telefon_id;
    $photo->save();
@@ -48,11 +25,10 @@ $path=$request->file('slika')->storeAs('public/slike',$compPic);
 
 
 
-if ($photo->save()){
-//        return ['status'=>true,'message'=>'Sacuvan '];
+if ($photo->save())
+{
         return $photo;
-
-    }
+}
 else{
     return ['status'=>true,'message'=>'Nije dobro '];
 }

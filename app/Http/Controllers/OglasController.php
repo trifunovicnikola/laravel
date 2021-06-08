@@ -11,14 +11,21 @@ class OglasController extends Controller
 {
     public function show()
     {
-//
-        //return DB::select('select * from telefons ');
+
         return DB::select('select * from posts');
     }
     public function show1()
     {
 //
         return DB::select("select * from posts where posts.javno is NULL ");
+    }
+    function dodaj(Request  $req)
+    {
+
+        $post = new post();
+        $post->tekst = $req->tekst;
+        $post->save();
+        return $post;
     }
 
 
@@ -34,7 +41,7 @@ class OglasController extends Controller
         $podatak = post::find($id);
         $podatak->javno = 1;
         $podatak->save();
-        return ;
+        return $podatak;
     }
 
 }

@@ -19,13 +19,17 @@ class modelController extends Controller
 
     public function  modelmarka($marka_id){
 
-
-
-
      return   DB::select('select * from models where marka_id ='.$marka_id);
 
+    }
+    function dodaj(Request  $req)
+    {
 
-
+        $models = new models();
+        $models->model_naziv = $req->model_naziv;
+        $models->marka_id = $req->marka_id;
+        $models->save();
+        return $models;
     }
 
 

@@ -53,8 +53,6 @@ class telefonIdController
     public function dajTelefone()
     {
 
-        //return  telefon::with('slika_id')->with('models')->where('telefons.javno', 1)->groupBy('telefons.id')->get();
-
        $telefoni = DB::select('select tel.created_at as okacen,tel.vrijeme as vrijeme,  tel.stanje as stanje,tel.id as id, tel.model as model, marks.marka_naziv as naziv, tel.cijena as cijena , photos.*, photos.id as slicica ,tel.prodavac as prodavac ,tel.kontakt as kontakt
 FROM telefons as tel
 join marks on (marks.id = tel.mark_id)
@@ -124,21 +122,25 @@ $javno=1;
 
     }
 
+    function dodaj(Request $req)
+    {
+        $telefon = new telefon();
+        $telefon->mark_id = $req->mark_id;
+        $telefon->model = $req->model;
+        $telefon->cijena = $req->cijena;
+        $telefon->opis = $req->opis;
+        $telefon->stanje = $req->stanje;
+        $telefon->specifikacije = $req->specifikacije;
+        $telefon->prodavac = $req->prodavac;
+        $telefon->kontakt = $req->kontakt;
+        $telefon->javno = 0;
+        $telefon->sifra = $req->sifra;
+        $telefon->vrijeme = $req->vrijeme;
+        $telefon->save();
 
+        return $telefon;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
     public function dajnovitelefon()
     {
@@ -164,23 +166,27 @@ $javno=1;
         return $telefon;
     }
 
-    public function pretraziCijena(Request $request)
-        {
-
-
-
-
-
-        $cijena1 = $request->cijena1=20;
-        $cijena2 = $request->cijena2=300;
-
-        $javno= 1 ;
-        $telefon= telefon::with('mark_id', 'specifikacije' )->whereBetween('cijena', [$cijena1, $cijena2])->where('javno',$javno)->get();
-
-        for($i=0; $i<sizeof($telefon);$i++){
-            $telefon[$i]->slika = photo::where('telefon_id', $telefon[$i]->id)->first();
-        }
-        return $telefon;
+//    public function pretraziCijena(Request $request)
+//        {
+//
+//        $cijena1 = $request->cijena1=20;
+//        $cijena2 = $request->cijena2=300;
+//
+//        $javno= 1 ;
+//        $telefon= telefon::with('mark_id', 'specifikacije' )->whereBetween('cijena', [$cijena1, $cijena2])->where('javno',$javno)->get();
+//
+//        for($i=0; $i<sizeof($telefon);$i++){
+//            $telefon[$i]->slika = photo::where('telefon_id', $telefon[$i]->id)->first();
+//        }
+//        return $telefon;
+//
+//    }
+    public function edit($id )
+    {
+        $podatak = telefon::find($id);
+        $podatak->javno = 1;
+        $podatak->save();
+        return redirect('/api/telefoni/'.$id);
 
     }
 

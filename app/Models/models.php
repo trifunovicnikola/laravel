@@ -11,15 +11,7 @@ class models extends Model
     public $timestamps = false;
     protected $table = 'models';
 
-//    public function marka()
-//    {
-//        return $this->hasOne('\App\Models\mark', 'id', 'marka');
-//    }
 
-//    public function marka()
-//    {
-//        return $this->belongsTo('\App\Models\mark', 'id', 'marka');
-//    }
 
     public function model_id()
     {

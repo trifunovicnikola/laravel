@@ -26,58 +26,6 @@ Route::get('/test', function () {
     // return view('test');
 });
 
-Route::get('api/telefoni', 'telefonIdController@dajTelefone');
-Route::get('api/sviTelefoni', 'telefonIdController@uzmiSveTelefone');
-
-Route::get('/users',function()
-{
-    return view('test');
-} );
-
-Route::get('api/telefoni/{id}', 'telefonIdController@show');
-
-Route::get('api/marke', 'markeController@show');
-
-Route::get('api/model', 'modelController@show');
-Route::get('api/model/{marka_id}', 'modelController@modelmarka');
-
-Route::view('api/dodaj-marku', 'dodajMarku');
-Route::post('api/dodaj-marku', 'dodajMarkuController@dodaj');
-
-Route::view('api/dodaj-model', 'dodajModel');
-Route::post('api/dodaj-model', 'dodajModelController@dodaj');
-
-Route::view('api/dodaj-telefon', 'dodajTelefon');
-Route::post('api/dodaj-telefon', 'dodajTelefonController@dodaj');
-
-Route::delete('api/obrisi/{id}', 'telefonIdController@obrisi');
-
-Route::view('api/edit/{id}', 'edit');
-Route::post('api/edit/{id}', 'EditController@edit');
-
-Route::get('api/oglas', 'OglasController@show');
-
-Route::view('api/dodaj-oglas', 'dadajOglas');
-Route::post('api/dodaj-oglas', 'DodajOglasController@dodaj');
-
-Route::delete('api/obrisi-oglas/{id}', 'OglasController@obrisi');
-Route::post('api/edit-oglas/{id}', 'OglasController@edit');
-
-Route::view('api/dodaj-konfiguracije', 'konfiguracije');
-Route::post('api/dodaj-konfiguracije', 'DodajKonfiguracijeController@dodaj');
-
-Route::get('api/konfiguracije', 'DodajKonfiguracijeController@show' );
-Route::get('api/marka-filtriraj/{id}', 'markeController@filtriraj');
-Route::get('api/telefon-filtriraj/{mark_id}', 'telefonIdController@filtriraj');
-Route::get('api/novitelefon', 'telefonIdController@dajnovitelefon');
-Route::get('api/telefon-filtriraj/telefonmodel/{naziv_modela}', 'telefonIdController@model');
-Route::get('api/slike', 'SlikaController@show');
-Route::get('api/slika/{telefon_id}', 'SlikaController@dajSliku');
-Route::get('api/oglasadmin', 'OglasController@show1');
-Route::post('api/filtrirajSve','telefonIdController@filtrirajSve' );
-
-Route::post('api/mail-salji', 'questionController@send');
-Route::get('api/mail-svi', 'questionController@show');
 
 
 

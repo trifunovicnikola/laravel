@@ -11,16 +11,21 @@ class markeController extends Controller
 {
     public function show()
     {
-
-//          return DB::select('select * from marks');
-       // return mark::all();
         return mark::all();
-
     }
 
     public function filtriraj($id)
     {
         return mark::find($id);
+    }
+    function dodaj(Request  $req)
+    {
+
+        $mark = new mark();
+        $mark->marka_naziv = $req->ime;
+        $mark->model_id = $req->model_naziv;
+        $mark->save();
+        return $mark;
     }
 
 }
